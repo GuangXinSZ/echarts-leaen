@@ -2,6 +2,8 @@
   <div class="container">
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
     <div id="main" style="width: 600px;height:400px;"></div>
+    <div class="content">
+    </div>
   </div>
 </template>
 
@@ -34,21 +36,33 @@ export default {
       //   }]
       // }
       let option = {
+        // 背景颜色
+        backgroundColor: '#2c343c',
+        // 随机颜色
+        // color: ['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3'],
         series: [
           {
+            // 自定义颜色
+            // color: ['#c23531', '#32C5E9', '#67E0E3', '#9FE6B8', '#FFDB5C','#ff9f7f', '#fb7293', '#E062AE', '#E690D1', '#e7bcf3', '#9d96f5', '#8378EA', '#96BFFF'],
             name: '访问来源',
             type: 'pie',
             radius: '55%',
             roseType: 'angle',
             itemStyle: {
-            // 阴影的大小
-            shadowBlur: 100,
-            // 阴影水平方向上的偏移
-            shadowOffsetX: 0,
-            // 阴影垂直方向上的偏移
-            shadowOffsetY: 0,
-            // 阴影颜色
-            shadowColor: 'rgba(0, 0, 0, 0.5)'
+              // 阴影的大小
+              shadowBlur: 0,
+              // 阴影水平方向上的偏移
+              shadowOffsetX: 0,
+              // 阴影垂直方向上的偏移
+              shadowOffsetY: 0,
+              // 阴影颜色
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            },
+            // 引导线的颜色
+            labelLine: {
+               lineStyle: {
+                color: 'rgba(255, 255, 255, 0.3)'
+              }
             },
             data: [
               {value: 235, name: '视频广告'},
@@ -60,6 +74,44 @@ export default {
           }
         ]
       }
+    //   let option = {
+    //     title : {
+    //       text: '某站点用户访问来源',
+    //       subtext: '纯属虚构',
+    //       x:'center'
+    //     },
+    //     tooltip : {
+    //       trigger: 'item',
+    //       formatter: "{a} <br/>{b} : {c} ({d}%)"
+    //     },
+    //     legend: {
+    //       orient: 'vertical',
+    //       left: 'left',
+    //       data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+    //     },
+    //     series : [
+    //     {
+    //       name: '访问来源',
+    //       type: 'pie',
+    //       radius : '55%',
+    //       center: ['50%', '60%'],
+    //       data: [
+    //         {value: 335, name: '直接访问'},
+    //         {value: 310, name: '邮件营销'},
+    //         {value: 234, name: '联盟广告'},
+    //         {value: 135, name: '视频广告'},
+    //         {value: 1548, name: '搜索引擎'}
+    //       ],
+    //       itemStyle: {
+    //         emphasis: {
+    //           shadowBlur: 10,
+    //           shadowOffsetX: 0,
+    //           shadowColor: 'rgba(0, 0, 0, 0.5)'
+    //         }
+    //       }
+    //     }
+    //   ]
+    // }
       myChart.setOption(option)
     }
   },
